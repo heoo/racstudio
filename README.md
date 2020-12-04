@@ -1,1 +1,1 @@
-# racstudio
+# studio-smarty

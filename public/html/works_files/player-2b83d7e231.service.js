@@ -1,0 +1,6 @@
+/*!***********************************************
+ Copyright (c) 2019, Neusoft Inc.
+ All rights reserved
+ 图表秀 Version 1.0.0 2020.4.24
+ ************************************************/
+"use strict";var player=angular.module("player",["ngAudio","ngStorage","ngSanitize","ui.bootstrap","charting","oc.lazyLoad","pascalprecht.translate","toaster","weixin-jssdk"]);player.config(["$httpProvider",function(e){e.defaults.withCredentials=!0,e.defaults.headers.common["Content-Type"]="charset=utf-8",e.defaults.headers.common["X-Requested-With"]="XMLHttpRequest"}]).config(["$ocLazyLoadProvider",function(e){e.config({debug:!0,events:!0})}]).config(["$translateProvider",function(e){e.useStaticFilesLoader({prefix:"src/l10n/",suffix:".json"});var a=navigator.language||navigator.userLanguage||"en";a=a.substring(0,2),e.preferredLanguage(a),e.useLocalStorage()}]).run(["$http",function(e){e({method:"get",url:"src/l10n/"+(window.localStorage.lang||navigator.language||navigator.userLanguage||"en").substring(0,2)+".json"}).then(function(e){window.info=e.data.addition})}]),cas_server&&player.config(["$sceDelegateProvider",function(e){e.resourceUrlWhitelist(["self",cas_server])}]);
